@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: poc-application
-          image: 595981035245.dkr.ecr.ap-south-1.amazonaws.com/atul-devops-lab/poc-application:REPLACE_ME
+          image: 595981035245.dkr.ecr.ap-south-1.amazonaws.com/atul-devops-lab/poc-application:cbe2b15378f90326c4f6492eb50ef86e8f4925b7
           ports:
             - containerPort: 8000
           readinessProbe:
