@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: poc-application
+  namespace: poc-application
   labels:
     app: poc-application
 spec:
@@ -19,6 +20,13 @@ spec:
           image: 595981035245.dkr.ecr.ap-south-1.amazonaws.com/atul-devops-lab/poc-application:379094838c0283cb26af04f1a19961e7b0f51afc
           ports:
             - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
           readinessProbe:
             httpGet:
               path: /health
