@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform
+  name: poc-application
   namespace: argocd
 spec:
   project: default
@@ -9,15 +9,16 @@ spec:
   source:
     repoURL: https://github.com/atul-devops-lab/POC-application-gitops.git
     targetRevision: main
-    path: platform
-    directory:
-      recurse: true
+    path: manifests
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: poc-application
 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
