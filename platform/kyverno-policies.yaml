@@ -22,3 +22,5 @@ spec:
                 - keyless:
                     subject: "https://github.com/atul-devops-lab/POC-application/.github/workflows/ci.yml@refs/heads/main"
                     issuer: "https://token.actions.githubusercontent.com"
+                    rekor:
+                      url: https://rekor.sigstore.dev
