@@ -5,6 +5,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  admission: true #default field to avoid out of sync message
+  background: false #default field to avoid out of sync message
+  emitWarning: false #default field to avoid out of sync message
   validationFailureAction: Enforce
   background: false
   rules:
@@ -17,6 +20,10 @@ spec:
       verifyImages:
         - imageReferences:
             - "595981035245.dkr.ecr.ap-south-1.amazonaws.com/atul-devops-lab/poc-application:*"
+          required: true #default field to avoid out of sync message
+          mutateDigest: true #default field to avoid out of sync message
+          verifyDigest: true #default field to avoid out of sync message
+          useCache: true #default field to avoid out of sync message
           attestors:
             - entries:
                 - keyless:
@@ -24,3 +31,4 @@ spec:
                     issuer: "https://token.actions.githubusercontent.com"
                     rekor:
                       url: https://rekor.sigstore.dev
+                      signatureAlgorithm: sha256 #default field to avoid out of sync message
