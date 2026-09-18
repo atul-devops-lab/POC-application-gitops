@@ -9,7 +9,6 @@ spec:
   background: false #default field to avoid out of sync message
   emitWarning: false #default field to avoid out of sync message
   validationFailureAction: Enforce
-  background: false
   rules:
     - name: verify-signature
       match:
@@ -31,4 +30,4 @@ spec:
                     issuer: "https://token.actions.githubusercontent.com"
                     rekor:
                       url: https://rekor.sigstore.dev
-                      signatureAlgorithm: sha256 #default field to avoid out of sync message
+                  signatureAlgorithm: sha256 #default field to avoid out of sync message
