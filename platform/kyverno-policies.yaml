@@ -11,6 +11,7 @@ spec:
   validationFailureAction: Enforce
   rules:
     - name: verify-signature
+      skipBackgroundRequests: true #default field to avoid out of sync message
       match:
         any:
           - resources:
@@ -30,4 +31,4 @@ spec:
                     issuer: "https://token.actions.githubusercontent.com"
                     rekor:
                       url: https://rekor.sigstore.dev
-                  signatureAlgorithm: sha256 #default field to avoid out of sync message
+                    signatureAlgorithm: sha256 #default field to avoid out of sync message
