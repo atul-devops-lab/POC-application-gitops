@@ -17,6 +17,10 @@ spec:
       valuesObject:
         grafana:
           enabled: true
+          # Instructs Grafana to authenticate using the AWS Secrets Manager secret synced by ESO instead of Helm's default auto-generated secret
+          admin:
+            existingSecret: "monitoring-grafana-admin"
+            passwordKey: "admin-password"
 
   destination:
     server: https://kubernetes.default.svc
